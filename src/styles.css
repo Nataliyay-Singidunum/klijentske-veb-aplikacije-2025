@@ -1,4 +1,32 @@
-/* globalni stilovi */
-body{
-  font-family: monospace;
+html, body {
+    height: 100%;
+    background-color: #1e2124;
+    color: white;
+    color-scheme: dark;
+}
+
+a{
+    color: gray;
+}
+
+body {
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.example-card {
+    max-width: 300px;
+}
+
+.loading{
+    text-align: center;
+    align-items: center;
+    width: 700px;
+    padding: 40px;
 }
