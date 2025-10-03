@@ -2,7 +2,6 @@ html, body {
     height: 100%;
     background-color: #1e2124;
     color: white;
-    color-scheme: dark;
 }
 
 a{
@@ -18,6 +17,12 @@ body {
     display: flex;
     justify-content: center;
     gap: 10px;
+}
+
+.wrapper {
+    max-width: 70%;
+    margin: 30px auto;
+    height: 500px;
 }
 
 .example-card {

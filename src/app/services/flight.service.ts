@@ -14,7 +14,7 @@ const client = axios.create({
 export class FlightService {
     static async getFlights(page: number = 0, size: number = 10) {
         return client.request({
-            url: '/flight', // OVDE JE NAMERNO POKVARENO
+            url: '/flight',
             method: 'GET',
             params: {
                 'page': page,
