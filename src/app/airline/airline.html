@@ -28,7 +28,7 @@
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef> Actions</th>
             <td mat-cell *matCellDef="let element">
-                <a matButton>
+                <a matButton [href]="element.website" target="_blank">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Details
                 </a>
         </ng-container>

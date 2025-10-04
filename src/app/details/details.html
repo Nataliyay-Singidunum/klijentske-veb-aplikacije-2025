@@ -1,0 +1,42 @@
+<div class="wrapper" *ngIf="flight">
+    <h1>{{flight.destination}}</h1>
+    <div class="flight-content">
+        <mat-card class="flight-card" appearance="outlined">
+            <img mat-card-image [src]="utils.generateDestinationImage(flight.destination)" [alt]="flight.destination">
+        </mat-card>
+
+        <mat-card class="flight-card" appearance="outlined">
+            <mat-card-content>
+                <h3>Flight Details</h3>
+                <mat-list role="list">
+                    <mat-list-item>
+                        <p>Scheduled At: {{utils.formatDate(flight.scheduledAt)}}</p>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <p>Flight Number: {{flight.flightNumber}}</p>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <p>Airplane model: {{flight.plane}}</p>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <p>Flight Type: {{flight.type.name}}</p>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+            <mat-card-actions>
+                <a matButton>
+                    <i class="fa-solid fa-cart-shopping"></i> Book Now
+                </a>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+    <mat-card class="flight-map">
+        <iframe [src]="generateMapLink() | safe"></iframe>
+    </mat-card>
+
+
+
+</div>
+
+<app-loading *ngIf="!flight"></app-loading>

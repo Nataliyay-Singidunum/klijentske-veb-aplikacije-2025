@@ -14,7 +14,7 @@
 -->
 <div *ngIf="flights" class="container">
     <mat-card class="example-card" appearance="outlined" *ngFor="let flight of flights">
-        <img mat-card-image [src]="generateDestinationImage(flight.destination)" [alt]="flight.destination">
+        <img mat-card-image [src]="utils.generateDestinationImage(flight.destination)" [alt]="flight.destination">
         <mat-card-content>
             <h1>{{flight.destination}}</h1>
             <p>Scheduled at: {{utils.formatDate(flight.scheduledAt)}}</p>
@@ -23,15 +23,14 @@
 
         </mat-card-content>
         <mat-card-actions>
-            <button matButton>
+            <a matButton [routerLink]="['/details/', flight.id]" >
                 <i class="fa-solid fa-arrow-up-right-from-square"></i> Details
-            </button>
-            <button matButton>
+            </a>
+            <a matButton>
                 <i class="fa-solid fa-cart-shopping"></i> Book Now
-            </button>
+            </a>
         </mat-card-actions>
     </mat-card>
-
 
     <!--
     <p *ngFor="let flight of flights">{{flight.id}} {{flight.destination}} {{flight.flightKey}}</p>
@@ -39,14 +38,6 @@
     -->
 </div>
 
-<div *ngIf="!flights && !error" class="container">
-    <mat-card class="loading" appearance="outlined">
-        <mat-card-content>
-            <h1>Please wait!</h1>
-            <p>Loading flights...</p>
-            <img mat-card-image src="/assets/loading.svg" alt="Loading..." width="100">
-        </mat-card-content>
-    </mat-card>
-</div>
+<app-loading *ngIf="!flights && !error"></app-loading>
 
 

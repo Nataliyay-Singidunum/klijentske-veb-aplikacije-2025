@@ -6,10 +6,12 @@ import {FlightModel} from '../../models/flight.model';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {UtilsService} from '../services/utils.service';
+import {Loading} from '../loading/loading';
+import {RouterLink} from '@angular/router';
 
 @Component({
     selector: 'app-home',
-    imports: [NgIf, NgFor, MatCardModule, MatButtonModule],
+    imports: [NgIf, NgFor, MatCardModule, MatButtonModule, Loading, RouterLink],
     templateUrl: './home.html',
     styleUrl: './home.css'
 })
@@ -21,10 +23,5 @@ export class Home {
         FlightService.getFlights(0,4).
         then(response => this.flights = response.data.content)
         .catch((error:AxiosError) => this.error = `${error.code}: ${error.message}`); // mini error handling
-    }
-
-
-    public generateDestinationImage(destination:string){
-        return `https://img.pequla.com/destination/${destination.split(' ')[0].toLowerCase()}.jpg`;
     }
 }

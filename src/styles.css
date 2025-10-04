@@ -35,3 +35,13 @@ body {
     width: 700px;
     padding: 40px;
 }
+
+.auth-card{
+    margin: 30px auto;
+    padding: 30px 100px;
+    max-width: 743px;
+}
+
+.full-width{
+    width: 100%;
+}

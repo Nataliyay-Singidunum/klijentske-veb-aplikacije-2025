@@ -1,0 +1,23 @@
+.flight-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flight-card{
+    width: 49%;
+    height: 400px;
+}
+
+.flight-card img{
+    height: 100%;
+    object-fit: cover;
+}
+
+.flight-map{
+    margin-top: 25px;
+    width: 100%;
+}
+

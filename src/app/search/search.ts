@@ -5,10 +5,12 @@ import {NgIf} from '@angular/common';
 import {FlightService} from '../services/flight.service';
 import {MatButtonModule} from '@angular/material/button';
 import {UtilsService} from '../services/utils.service';
+import {Loading} from '../loading/loading';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-search',
-    imports: [MatTableModule, NgIf, MatButtonModule],
+    imports: [MatTableModule, NgIf, MatButtonModule, Loading, RouterLink],
   templateUrl: './search.html',
   styleUrl: './search.css'
 })

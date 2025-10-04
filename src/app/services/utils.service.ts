@@ -16,4 +16,8 @@ export class UtilsService {
         });
     }
 
+    public generateDestinationImage(destination:string){
+        return `https://img.pequla.com/destination/${destination.split(' ')[0].toLowerCase()}.jpg`;
+    }
+
 }
