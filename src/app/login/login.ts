@@ -4,7 +4,8 @@ import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -17,16 +18,14 @@ export class Login {
     public email:string = '';
     public password:string = '';
 
-    public updateEmail(event:any){
-        this.email = event.target.value;
-    }
-
-    public updatePassword(event:any){
-        this.password = event.target.value;
-    }
+    constructor(private router:Router){}
 
     public doLogin(){
-        alert(`${this.email} ${this.password}`);
-    }
+        if(UserService.login(this.email, this.password)){
+            this.router.navigate(['/user']);
+            return;
+        }
 
+        alert('Invalid credentials');
+    }
 }

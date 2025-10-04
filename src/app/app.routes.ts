@@ -5,6 +5,7 @@ import {Search} from './search/search';
 import {Airline} from './airline/airline';
 import {Details} from './details/details';
 import {Login} from './login/login';
+import {User} from './user/user';
 
 export const routes: Routes = [
     { path: '', component: Home},
@@ -13,6 +14,7 @@ export const routes: Routes = [
     { path: 'airline', component: Airline},
     { path: 'details/:id', component: Details},
     { path: 'login', component: Login},
+    { path: 'user', component: User},
 
     { path: '**', redirectTo: ''} // svi pathovi moraju biti definisani iznad ovog jer on mapira bilo sta dalje na home komponentu
 ];
