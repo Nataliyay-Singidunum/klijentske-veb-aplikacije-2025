@@ -1,0 +1,25 @@
+.order-card {
+    max-width: 800px;
+    min-height: 400px;
+    margin: auto;
+}
+
+img{
+    width: 100%;
+
+    object-fit: cover;
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    display: block; /* Ensures the image respects box layout */
+}
+
+.flight-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+

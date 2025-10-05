@@ -22,7 +22,6 @@ body {
 .wrapper {
     max-width: 70%;
     margin: 30px auto;
-    height: 500px;
 }
 
 .example-card {

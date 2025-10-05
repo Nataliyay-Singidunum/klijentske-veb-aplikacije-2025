@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, RouterLink} from '@angular/router';
 import {FlightModel} from '../../models/flight.model';
 import {FlightService} from '../services/flight.service';
 import {JsonPipe, NgIf} from '@angular/common';
@@ -13,7 +13,7 @@ import {SafePipe} from '../safe-pipe';
 
 @Component({
   selector: 'app-details',
-    imports: [JsonPipe, NgIf, Loading, MatCardModule, MatButtonModule, MatListModule, SafePipe],
+    imports: [JsonPipe, NgIf, Loading, MatCardModule, MatButtonModule, MatListModule, SafePipe, RouterLink],
   templateUrl: './details.html',
   styleUrl: './details.css'
 })
