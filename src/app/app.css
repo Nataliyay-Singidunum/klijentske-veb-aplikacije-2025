@@ -6,3 +6,31 @@ mat-toolbar {
     display: flex;
     justify-content: space-between;
 }
+
+footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: black;
+    font-size: 17px;
+}
+
+.icons {
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.icons a {
+    padding: 0 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.icons a:hover {
+    color: gray;
+}

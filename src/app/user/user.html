@@ -1,1 +1,22 @@
 <p>user works!</p>
+
+<div class="wrapper">
+
+    <div *ngIf="orders.length == 0">
+        <p>No Orders</p>
+    </div>
+
+    <div *ngIf="orders.length > 0">
+        <div *ngFor="let order of orders">
+            {{order.destination}} {{order.flightNumber}} {{order.pricePerItem}} {{order.flightId}}
+        </div>
+    </div>
+
+    <button mat-button *ngIf="service.getActiveUser() != null" (click)="doChangePassword()">
+        <p>Change Password</p>
+    </button>
+
+</div>
+
+
+
