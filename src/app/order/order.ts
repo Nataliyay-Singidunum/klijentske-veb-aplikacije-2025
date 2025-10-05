@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FlightModel} from '../../models/flight.model';
-import {ActivatedRoute, RouterLink} from '@angular/router';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {UtilsService} from '../services/utils.service';
 import {FlightService} from '../services/flight.service';
 import {DatePipe, JsonPipe, NgFor, NgIf} from '@angular/common';
@@ -28,11 +28,11 @@ export class Order {
 
     public flight:FlightModel | null = null;
     public airlines: AirlineModel[] = AirlineService.getAirlines();
-    public selectedAirline: AirlineModel = this.airlines[0];
+    public selectedAirline: number  = this.airlines[0].id;
     public selectedTicketCount: number = 1;
     public selectedPrice: number = 150;
 
-    public constructor(private route: ActivatedRoute, public utils:UtilsService){
+    public constructor(private route: ActivatedRoute, public utils:UtilsService, private router:Router){
         route.params.subscribe(params =>{
             FlightService.getFlightById(params['id']).
             then(response => this.flight = response.data);
@@ -44,15 +44,14 @@ export class Order {
             flightId: this.flight!.id,
             flightNumber: this.flight!.flightNumber,
             destination: this.flight!.destination,
-            airline: this.selectedAirline,
+            airline: AirlineService.getAirlineById(this.selectedAirline)!,
             count: this.selectedTicketCount,
             pricePerItem: this.selectedPrice,
             status: 'ordered',
             rating: null
-
-
-
             });
+
+        result ? this.router.navigate(['/user']) : alert('Failed to order');
     }
 
 }

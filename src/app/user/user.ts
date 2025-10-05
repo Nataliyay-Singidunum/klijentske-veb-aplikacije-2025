@@ -1,21 +1,26 @@
 import { Component } from '@angular/core';
 import {UserService} from '../services/user.service';
-import {Router} from '@angular/router';
-import {OrderModel} from '../../models/order.model';
 import {NgFor, NgIf} from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {UserModel} from '../../models/user.model';
+import {Router, RouterLink} from '@angular/router';
+import {Loading} from '../loading/loading';
+import {UtilsService} from '../services/utils.service';
+import {MatTableModule} from '@angular/material/table';
 
 @Component({
   selector: 'app-user',
-  imports: [NgFor, NgIf, MatButtonModule],
+    imports: [NgFor, NgIf, MatButtonModule, MatCardModule, Loading, MatTableModule, RouterLink],
   templateUrl: './user.html',
   styleUrl: './user.css'
 })
 export class User {
 
-    public orders:OrderModel[] = [];
+    public displayedColumns: string[] = ['id', 'destination', 'flightNumber', 'airline', 'count', 'price', 'total', 'status', 'rank' , 'actions'];
+    public user: UserModel | null = UserService.getActiveUser();
 
-    constructor(private router:Router){
+    constructor(private router:Router, public utils:UtilsService){
         if(!UserService.getActiveUser()){
             // Korisnik nije ulogovan
             // Vrati korisnika na homepage
@@ -24,7 +29,7 @@ export class User {
             return;
         }
 
-        this.orders = UserService.getActiveUser()!.orders;
+        this.user = UserService.getActiveUser();
     }
 
     protected readonly service = UserService;
